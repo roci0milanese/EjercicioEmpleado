@@ -21,7 +21,7 @@ namespace ClasesEjercicioPrueba.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ClasesEjercicioPrueba.Models.Vehiculo", b =>
+            modelBuilder.Entity("ClasesEjercicioPrueba.Models.Departamento", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -29,27 +29,20 @@ namespace ClasesEjercicioPrueba.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CapacidadCargaKg")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Marca")
+                    b.Property<string>("Descripcion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Modelo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Patente")
+                    b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("vehiculos");
+                    b.ToTable("Departamentos");
                 });
 
-            modelBuilder.Entity("ClasesEjercicioPrueba.Models.Viaje", b =>
+            modelBuilder.Entity("ClasesEjercicioPrueba.Models.Empleado", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -57,27 +50,41 @@ namespace ClasesEjercicioPrueba.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Destino")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("DistanciaKm")
+                    b.Property<int>("DepartamentoId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Fecha")
+                    b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Origen")
+                    b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("VehiculoId")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Salario")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Viaje");
+                    b.HasIndex("DepartamentoId");
+
+                    b.ToTable("Empleados");
+                });
+
+            modelBuilder.Entity("ClasesEjercicioPrueba.Models.Empleado", b =>
+                {
+                    b.HasOne("ClasesEjercicioPrueba.Models.Departamento", "Departamento")
+                        .WithMany("Empleados")
+                        .HasForeignKey("DepartamentoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Departamento");
+                });
+
+            modelBuilder.Entity("ClasesEjercicioPrueba.Models.Departamento", b =>
+                {
+                    b.Navigation("Empleados");
                 });
 #pragma warning restore 612, 618
         }

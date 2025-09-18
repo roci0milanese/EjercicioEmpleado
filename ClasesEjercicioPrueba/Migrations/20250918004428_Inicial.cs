@@ -5,7 +5,7 @@
 namespace ClasesEjercicioPrueba.Migrations
 {
     /// <inheritdoc />
-    public partial class ModificacionesVehiculo : Migration
+    public partial class Inicial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
