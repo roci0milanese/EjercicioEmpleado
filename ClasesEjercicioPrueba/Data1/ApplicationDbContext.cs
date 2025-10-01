@@ -13,7 +13,7 @@ namespace ClasesEjercicioPrueba.Data1
         public DbSet<Empleado> Empleados { get; set; }
         public DbSet<Departamento> Departamentos { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) // Configura la conexión a la base de datos
         {
             optionsBuilder.UseSqlServer(
                 "Server=localhost;Database=EjPruebaProgramacion;Trusted_Connection=True;TrustServerCertificate=True;"

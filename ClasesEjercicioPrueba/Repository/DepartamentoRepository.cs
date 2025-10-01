@@ -25,5 +25,22 @@ namespace ClasesEjercicioPrueba.Repository
             using var context = new ApplicationDbContext();
             return context.Departamentos.ToList();
         }
+
+        public static string ObetenerNombreDepartamentoMax()
+        {
+            using var context = new ApplicationDbContext();
+
+            var nombreDepartamento = context.Departamentos
+                .OrderByDescending(d => d.Empleados.Count)
+                .FirstOrDefault().Nombre;
+
+            if (nombreDepartamento != null)
+            {
+                return nombreDepartamento;
+            }
+
+            return "";
+        }
     }
+
 }
