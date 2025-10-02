@@ -1,0 +1,17 @@
+ copilot
+
+repository
+ //Agregar(Vehiculo vehiculo) → inserta un nuevo registro en la tabla Vehiculos.
+ // ObtenerTodos() → devuelve la lista de vehículos registrados.
+
+
+form.
+ //usar los datos que se van a ingresar en los textbox para crear un objeto de tipo vehiculo y guardarlo en la base de datos
+ //Se debe manejar validación básica(por ejemplo, que el campo Año sea numérico).
+ //luego limpiar los textbox
+ //luego mostrar un mensaje de que se guardo correctamente
+
+//cargue en un DataGridView todos los vehículos registrados en la base y al tocar de nuevo el botón se actualice la lista.
+
+
+
