@@ -10,8 +10,7 @@ namespace ClasesEjercicioPrueba.Data1
 {
     public class ApplicationDbContext : DbContext
     {
-        public DbSet<Empleado> Empleados { get; set; }
-        public DbSet<Departamento> Departamentos { get; set; }
+        public DbSet<Vehiculo> Vehiculo { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) // Configura la conexión a la base de datos
         {
